@@ -1,0 +1,11 @@
+{
+  "name": "embed",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^3.5.3"
+  }
+}

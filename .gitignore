@@ -33,3 +33,6 @@ bin/
 
 # profile
 *.prof
+
+# Go module files
+go.sum

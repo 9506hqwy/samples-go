@@ -3,7 +3,10 @@ set -euo pipefail
 
 # Install dependencies
 sudo apt-get update -y
-sudo apt-get install -y graphviz shellcheck
+sudo apt-get install -y \
+    graphviz \
+    protobuf-compiler \
+    shellcheck
 
 # Configuration PATH
 mkdir -p ~/.local/bin
@@ -55,3 +58,7 @@ YQ_VERSION=$(curl -fsSL -H "${GITHUB_HEADER_ACCEPT}" -H "${GITHUB_HEADER_VERSION
 curl -fsSL -o - "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64.tar.gz" | \
     tar -zxf - -O "./yq_linux_amd64" > ~/.local/bin/yq
 chmod +x ~/.local/bin/yq
+
+# Install the protocol compiler plugins for Go
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
